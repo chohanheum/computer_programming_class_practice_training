@@ -1,0 +1,15 @@
+#include <stdio.h>
+#pragma warning (disable : 4996)
+
+int main()
+{
+    int num, abs, b;
+
+    scanf("%d", &num);
+    b = num > 0 ? printf("부호 : +1\n") : printf("부호 : -1\n");
+     
+    abs = num > 0 ? num : num * (-1);
+    printf("절댓값 : %d", abs);
+
+    return 0;
+}
