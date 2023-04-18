@@ -1,0 +1,149 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <windows.h>
+#pragma warning (disable : 4996)
+
+void Howtouse() //main함수 이외에 새로운 함수 설정
+{
+    printf("이 게임은 행운의 숫자 게임입니다\n");
+    printf("사용자가 행운의 숫자로 선택한 숫자와 컴퓨터가 선택한 숫자가 같게 되면 반복은 중단되며 \n그때까지의 행운의 점수를 사용자가 선택한 숫자의 행운의 점수로 정하게 됩니다.\n");
+    printf("행운의 점수는 100만점부터 시작되며, 반복 횟수가 증가될때 마다 1만점씩 증가되면서 감점받게 됩니다.\n");
+    printf("예시 : 1회 틀릴시 1만점, 2회 틀릴시 3만점, 3회 틀릴시 6만점, 4회 틀릴시 10만점\n");
+    printf("\n잠시후 게임이 시작됩니다\n");
+    printf("\n행운을 빕니다\n");
+    Sleep(10000);
+    system("cls");
+}
+
+int main()
+{
+    int com; // 컴퓨터가 행운의 점수를 할당받기 때문에 변수 이름을 com으로 선언
+    int score = 100; // 행운의 점수를 표현하기 위해 변수 이름을 score 로 선언
+    int user_ans; // 유저의 대답을 받기 위해 변수 이름을 user_ans 로 설정
+    int i;
+    int j = 1;
+
+    Howtouse();
+
+    srand((unsigned int)time(NULL));
+    com = 10 + rand() % 90;
+
+   
+
+    printf("현재 당신의 행운점수입니다 : %10d만점\n", score);
+    printf("10부터 99까지의 숫자중 마음에 드는 숫자를 입력하여주세요 : ");
+
+    while (1)
+    {
+       
+
+        while (1) // 10에서부터 99까지의 숫자 이외의 숫자를 입력했을때 다시 입력받기 위해 while문 사용
+        {
+            scanf("%d", &user_ans);
+            if (user_ans < 10 || user_ans>99)
+            {
+                system("cls");
+                printf("현재 당신의 행운점수는 %10d만점입니다\n", score);
+                printf("10부터 99까지의 숫자중 마음에 드는 숫자를 입력하여주세요 : ");
+            }
+
+            else
+            {
+                break;
+            }
+        }
+
+        for (i = 3; i >0; i--) // 게임 플레이중 긴장감을 주기위해 for문을 사용
+        {
+            printf("%d\n", i);
+            Sleep(1000);
+        }
+
+        if (user_ans == com)
+        {
+            printf("축하드립니다!\n");
+            printf("%d은 당신의 행운의 숫자였습니다!\n",com);
+            printf("당신의 행운점수는 %10d만점 입니다!\n", score);
+            break;
+        }
+        else
+        {
+            system("cls");
+            printf("%d는 행운의 숫자가 아닙니다\n",user_ans);
+            score = score - j;
+            j++;
+            printf("\n현재 당신의 행운점수입니다 : %d만점\n", score);
+            printf("다른 숫자를 입력하여주십시오 : ");            
+        }
+        
+    }
+
+    switch (score / 10) // 게임의 결과가 나왔을때 사용자에게 재미를 주기위해 switch를 사용
+    {
+    case -10:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -9:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -8:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -7:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -6:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -5:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -4:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -3:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -2: 
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case -1:
+        printf("오늘은 주식하시면 안될것 같아요...");
+        break;
+    case 0:
+        printf("오늘 새똥 안맞게 주의하셔야겠어요 !!");
+        break;
+    case 1:
+        printf("오늘 신은 양말이 짝짝이가 아닌지 확인해보세요 !");
+        break;
+    case 2:
+        printf("오늘 신은 양말이 짝짝이가 아닌지 확인해보세요 !");
+        break;
+    case 3:
+        printf("오늘은 평범하게 운이 좋으시네요~");
+        break;
+    case 4:
+        printf("오늘은 평범하게 운이 좋으시네요~");
+        break;
+    case 5:
+        printf("오늘 복권 사시는건 어떠세요?!");
+        break;
+    case 6:
+        printf("오늘 복권 사시는건 어떠세요?!");
+        break;
+    case 7:
+        printf("오늘 복권 사시는건 어떠세요?!");
+        break;
+    case 8:
+        printf("오늘 복권 사시는건 어떠세요?!");
+        break;
+    case 9:
+        printf("오늘 복권 사시는건 어떠세요?!");
+        break;
+    case 10: 
+        printf("오늘 복권 사시는건 어떠세요?!");
+        break;
+    }
+    return 0;
+}
