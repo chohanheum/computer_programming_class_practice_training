@@ -1,0 +1,31 @@
+//연립방정식
+#include <stdio.h>
+#pragma warning (disable : 4996)
+
+int main()
+{
+    int a;
+    int b;
+    int c;
+    int d;
+    int e;
+    int f;
+    int x;
+    int y;
+    
+  
+
+    scanf("%d %d %d %d %d %d", &a, &b, &c, &d, &e, &f);
+
+   
+
+    d = d * ((float)a / d); //(float)a / d 를 곱함으로써 x의 계수를 동일하게 하였다.
+    e = e * ((float)a / d);
+    f = f * ((float)a / d);
+    y = (c - f) / (b - e);
+    x = (c - b * y) / a;
+
+    printf("%d %d", x, y);
+
+    return 0;
+}
