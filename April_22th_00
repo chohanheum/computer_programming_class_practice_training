@@ -1,0 +1,39 @@
+//행렬
+
+#include <stdio.h>
+#pragma warning (disable : 4996)
+
+int matrix(int N, int M, int K)
+{
+    if (1 <= N && M <= 1000 && (N + M - 1) == K)
+    {
+        printf("Yes\n");
+        for (int i = 1; i <= N;i++)
+        {
+            printf("%d", i);
+
+            for (int j = i + 1;j <= M; j++)
+            {
+                printf(" %d", j);
+            }
+
+            printf("\n");
+            M++;
+        }
+    }
+    else
+    {
+        printf("No");
+    }
+}
+
+void main()
+{
+    int N;
+    int M;
+    int K;
+
+    scanf("%d %d %d", &N, &M, &K);
+
+    matrix(N, M, K);
+}
